@@ -1,0 +1,58 @@
+# Кодировка сайта
+AddDefaultCharset utf-8
+DefaultLanguage ru
+SetEnv Europe/Kiev
+SetEnv SERVER_ADMIN intfom@gmail.com
+
+<IfModule mod_rewrite.c>
+    Options -FollowSymLinks +SymLinksIfOwnerMatch
+    RewriteEngine On
+
+    RewriteCond %{REQUEST_URI} ^/.*
+    RewriteRule ^(.*)$ web/$1 [L]
+    RewriteCond %{REQUEST_URI} !^/web/
+    RewriteCond %{REQUEST_FILENAME} !-f [OR]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^.*$ web/index.php
+
+    # Склейка домена с WWW и без WWW в один домен (без www)
+    #RewriteCond %{HTTP_HOST} ^www\.bee-cms\.local
+    #RewriteRule ^(.*)$ http://bee-cms.local/$1 [R=301,L]
+
+</IfModule>
+
+
+# БЕЗОПАСНОСТЬ
+#Dывод подвала страницы в документах для безопасности. Убираем вывод информации
+ServerSignature Off
+#Так-же настроить в конфиге Apache параметр "ServerTokens"
+#для вывода минимальной информации о сервере.
+#ServerTokens ProductOnly
+
+# Запрещаем доступ к .htaccess
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
+
+  # Запрещаем просмотр содержимого папок
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+# /БЕЗОПАСНОСТЬ
+
+# КЕШИРОВАНИЕ
+<IfModule mod_expires.c>
+    # включаем кэширование для всех файлов
+    ExpiresActive On
+    # включаем кэширование для некоторых типов файлов сроком на 30 дней (2592000)
+    <FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf|js|css|pdf)$">
+        Header set Cache-Control "max-age=2592000"
+    </FilesMatch>
+
+    # отключаем его для HTML-файлов
+    <FilesMatch .*\.(htm|txt|shtml|html|phtml|php)$>
+        ExpiresActive Off
+    </FilesMatch>
+</IfModule>
+# /КЕШИРОВАНИЕ
