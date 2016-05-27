@@ -10,13 +10,16 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'vendorPath'     => dirname(__DIR__) . '/components/core/vendor',
+    'controllerNamespace' => 'app\components\main\controllers',
+    'modules' => [],
     'components' => [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'site/index',
-                '<action>'=>'site/<action>',
+                '' => 'main/index',
+                '<action>'=>'main/<action>',
             ],
         ],
         'request' => [
@@ -33,7 +36,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'main/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
