@@ -11,15 +11,26 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'vendorPath'     => dirname(__DIR__) . '/components/core/vendor',
-    'controllerNamespace' => 'app\components\main\controllers',
-    'modules' => [],
+    //'controllerNamespace' => 'app\components\default\controllers',
+    'modules' => [
+        'main' => [
+            'class' => 'app\components\main\Module',
+        ],
+        'test' => [
+            'class' => 'app\components\test\Module',
+        ],
+    ],
     'components' => [
         'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
+            'class' => 'yii\web\UrlManager',
+            'enablePrettyUrl' => true, // ЧПУ
+            'showScriptName' => false, // Вывод ссылок без index.php
+            'enableStrictParsing' => true, // убираем дубли ссылок
             'rules' => [
-                '' => 'main/index',
-                '<action>'=>'main/<action>',
+                '/' => 'main/frontend/default/index',
+
+                '<_component:[\w\-]+>/<_controller:[\w\-]+>/<_action:[\w\-]+>' => '<_component>/frontend/<_controller>/<_action>',
+                '<_zone:(admin|dev)>/<_component:[\w\-]+>/<_controller:[\w\-]+>/<_action:[\w\-]+>' => '<_component>/<_zone>/<_controller>/<_action>',
             ],
         ],
         'request' => [
@@ -36,7 +47,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'main/error',
+            'errorAction' => 'main/default/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
