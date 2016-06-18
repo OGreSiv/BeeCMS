@@ -1,23 +1,24 @@
 {
-    "name": "yiisoft/yii2-app-basic",
-    "description": "Yii 2 Basic Project Template",
-    "keywords": ["yii2", "framework", "basic", "project template"],
-    "homepage": "http://www.yiiframework.com/",
+    "name": "BeeCMS",
+    "description": "Easy BeeCMS for your site",
+    "keywords": ["beecms", "cms", "ogresiv", "intfom"],
+    "homepage": "http://seroed.intfom.com/",
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
-        "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
+        "issues": "https://github.com/OGreSiv/BeeCMS/issues?state=open",
+        "forum": "http://seroed.intfom.com/",
+        "wiki": "http://seroed.intfom.com/",
         "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2"
+        "source": "https://github.com/OGreSiv/BeeCMS"
     },
     "minimum-stability": "stable",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.5",
         "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-swiftmailer": "*"
+        "yiisoft/yii2-swiftmailer": "*",
+        "mobiledetect/mobiledetectlib": "^2.8"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
@@ -47,8 +48,8 @@
             ]
         },
         "asset-installer-paths": {
-            "npm-asset-library": "vendor/npm",
-            "bower-asset-library": "vendor/bower"
+            "npm-asset-library": "libs/vendor/npm",
+            "bower-asset-library": "libs/vendor/bower"
         }
     }
 }

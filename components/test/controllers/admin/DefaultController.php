@@ -2,6 +2,7 @@
 
 namespace app\components\test\controllers\admin;
 
+use Yii;
 use yii\web\Controller;
 
 /**

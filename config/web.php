@@ -9,15 +9,21 @@ $configDB = array_merge(
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
-    'vendorPath'     => dirname(__DIR__) . '/components/core/vendor',
+    'bootstrap' => [
+        'log',
+        'core'
+    ],
+    'vendorPath'     => dirname(__DIR__) . '/libs/vendor',
     //'controllerNamespace' => 'app\components\default\controllers',
     'modules' => [
+        'core' => [
+            'class' => 'app\components\core\CoreModule',
+        ],
         'main' => [
-            'class' => 'app\components\main\Module',
+            'class' => 'app\components\main\MainModule',
         ],
         'test' => [
-            'class' => 'app\components\test\Module',
+            'class' => 'app\components\test\TestModule',
         ],
     ],
     'components' => [
@@ -39,15 +45,22 @@ $config = [
 
             'baseUrl' => '',
         ],
+
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+
+        'view' => [
+            'class' => 'app\libs\bee\classes\View',
+        ],
+
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+            'loginUrl' => ['main/frontend/default/login']
         ],
         'errorHandler' => [
-            'errorAction' => 'main/default/error',
+            'errorAction' => 'main/frontend/default/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -66,6 +79,13 @@ $config = [
             ],
         ],
         'db' => $configDB,
+
+        /**
+         * Собствнное приложение для вывода IP пользователя
+         */
+        'ReadHttpHeader' => [
+            'class' => 'app\libs\bee\components\ReadHttpHeader\ReadHttpHeaderComponent'
+        ],
     ],
     'params' => $params,
 ];

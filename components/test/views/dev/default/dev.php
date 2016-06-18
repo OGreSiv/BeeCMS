@@ -1,5 +1,5 @@
 <div class="test-default-index">
-    <h1><?= $this->context->action->uniqueId ?> DEV</h1>
+    <h1><?= $this->context->action->uniqueId ?> DEV-DEV</h1>
     <p>
         This is the view content for action "<?= $this->context->action->id ?>".
         The action belongs to the controller "<?= get_class($this->context) ?>"
