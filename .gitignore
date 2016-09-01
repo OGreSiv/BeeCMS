@@ -1,5 +1,4 @@
 /.BackUP
-/assets
 /runtime
 
 # phpstorm project files
@@ -19,7 +18,6 @@ Thumbs.db
 # composer vendor dir
 /vendor
 /__SCRIPTS
-/libs/vendor
 
 # composer itself is not needed
 composer.phar
