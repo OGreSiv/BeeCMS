@@ -1,0 +1,29 @@
+@media (min-width: 768px){
+    .error-wrap {
+        font-size: 100px;
+        margin-top: calc(50vh - 200px);
+    }
+
+    /* HEADER */
+    .top-bar {
+        /*position: fixed;*/
+    }
+
+    /* LOGO */
+    .main-logo,
+    .main-search{
+        display:inline-block;
+    }
+    .main-logo-mobile{
+        display: none;
+    }
+    /* PANEL */
+    .main-panel {
+        position: absolute;
+        width: calc(100% - 189px - 250px);
+    }
+    .content {
+        width: calc(100% - 69px);
+        padding: 36px 40px 50px 40px;
+    }
+}

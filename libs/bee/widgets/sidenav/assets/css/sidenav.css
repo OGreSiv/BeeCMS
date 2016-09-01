@@ -1,0 +1,52 @@
+.nav-stacked ul {
+    padding: 0;
+    margin: 0;
+}
+
+.nav-stacked .opened, .nav-stacked .closed {
+    float: right;
+}
+
+.nav-stacked .indicator {
+    color: #999999;
+}
+
+.nav-stacked .active > a > span > .indicator {
+    color: #ffffff;
+}
+
+.nav-stacked .active > ul {
+    background-color: #f3f8fC;
+}
+
+.nav-stacked .nav {
+    display: none;
+}
+
+.nav-stacked .nav .nav {
+    display: none;
+}
+
+.nav-stacked .nav a {
+    padding-left: 9%;
+}
+
+.nav-stacked .nav .nav a {
+    padding-left: 18%;
+}
+
+.nav-stacked .active > ul {
+    display: block;
+}
+
+.nav-stacked .nav .active > ul {
+    display: block;
+}
+.nav-stacked > li + li {
+    margin-top: 0;
+    margin-left: 0;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #cce698;
+}

@@ -1,0 +1,25 @@
+@media (min-width: 992px){
+
+    /* SEARCH */
+    .main-search input {
+        width: 300px;
+    }
+    /* PANEL */
+    .main-panel {
+        position: absolute;
+        width: calc(100% - 189px - 350px);
+    }
+
+    .nav-stacked .active > ul {
+        position: absolute;
+        top: 0;
+        left: 189px;
+        width: 200px;
+    }
+
+    /* CONTENT-BODY */
+    .content {
+        width: calc(100% - 70px);
+        padding: 40px 40px 90px 40px;
+    }
+}

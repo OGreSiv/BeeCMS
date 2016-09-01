@@ -1,0 +1,15 @@
+@media (min-width: 1200px){
+    .content {
+        width: calc(100% - 189px);
+        padding: 40px 40px 90px 40px;
+    }
+
+    .content .copyright{
+        display: none;
+    }
+
+    /* FOOTER */
+    .footer {
+        display: block;
+    }
+}

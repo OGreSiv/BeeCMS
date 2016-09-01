@@ -1,0 +1,6 @@
+<?php
+return [
+    'TEST_FOR_SOME' => 'ТЕСТ',
+    'OLOLO' => '<br/>MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN ',
+]
+?>
