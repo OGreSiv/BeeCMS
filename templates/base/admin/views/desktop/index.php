@@ -7,15 +7,15 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\templates\base\admin\assets\AppAsset;
+use tmpl\base\admin\assets\AppAsset;
 
 $bundle = AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Bee::$app->language ?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
+    <meta charset="<?= Bee::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
@@ -30,7 +30,7 @@ $bundle = AppAsset::register($this);
                       'brandLabel' => Html::img(
                               $bundle->baseUrl.'/images/device-desktop.png', ['style' => 'width: 30px; float: left; margin-right: 5px;']
                           ) . 'BeeCMS',
-                      'brandUrl' => Yii::$app->homeUrl,
+                      'brandUrl' => Bee::$app->homeUrl,
                       'options' => [
                           'class' => 'navbar-inverse navbar-fixed-top',
                       ],
@@ -53,13 +53,13 @@ $bundle = AppAsset::register($this);
                                      ['label' => 'По умолчанию', 'url' => '?layoutType=unset', 'options' => ['menu_type' => 'top_menu']],
                                  ],
                              ],
-                             Yii::$app->user->isGuest ? (
+                             Bee::$app->user->isGuest ? (
                              ['label' => 'Login', 'url' => ['/admin/main/default/login']]
                              ) : (
                                  '<li>'
                                  . Html::beginForm(['/admin/main/default/logout'], 'post', ['class' => 'navbar-form'])
                                  . Html::submitButton(
-                                     'Logout (' . Yii::$app->user->identity->username . ')',
+                                     'Logout (' . Bee::$app->user->identity->username . ')',
                                      ['class' => 'btn btn-link']
                                  )
                                  . Html::endForm()
@@ -87,7 +87,7 @@ $bundle = AppAsset::register($this);
     <div class="container">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><?= Bee::powered() ?></p>
     </div>
 </footer>
 

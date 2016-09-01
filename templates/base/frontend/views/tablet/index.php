@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\templates\base\frontend\assets\AppAsset;
+use tmpl\base\frontend\assets\AppAsset;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -12,9 +12,9 @@ $bundle = AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Bee::$app->language ?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>"/>
+    <meta charset="<?= Bee::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
@@ -30,7 +30,7 @@ $bundle = AppAsset::register($this);
                     $bundle->baseUrl . '/images/device-tablet.png',
                     ['style' => 'width: 30px; float: left; margin-right: 5px;']
                 ) . 'BeeCMS',
-            'brandUrl' => Yii::$app->homeUrl,
+            'brandUrl' => Bee::$app->homeUrl,
             'options' => [
                 'class' => 'navbar-inverse navbar-fixed-top',
             ],
@@ -53,12 +53,12 @@ $bundle = AppAsset::register($this);
             ],
         ],
     ];
-    if (Yii::$app->user->isGuest) {
+    if (Bee::$app->user->isGuest) {
         //$menuItems[] = ['label' => 'Signup', 'url' => ['/main/default/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/main/default/login']];
     } else {
         $menuItems[] = [
-            'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+            'label' => 'Logout (' . Bee::$app->user->identity->username . ')',
             'url' => ['/main/default/logout'],
             'linkOptions' => ['data-method' => 'post']
         ];
@@ -92,7 +92,7 @@ $bundle = AppAsset::register($this);
     <div class="container">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><?= Bee::powered() ?></p>
     </div>
 </footer>
 

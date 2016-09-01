@@ -2,7 +2,7 @@
 
 namespace tests\codeception\unit\models;
 
-use Yii;
+use Bee;
 use yii\codeception\TestCase;
 use Codeception\Specify;
 
@@ -13,7 +13,7 @@ class ContactFormTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        Yii::$app->mailer->fileTransportCallback = function ($mailer, $message) {
+        Bee::$app->mailer->fileTransportCallback = function ($mailer, $message) {
             return 'testing_message.eml';
         };
     }
@@ -54,7 +54,7 @@ class ContactFormTest extends TestCase
 
     private function getMessageFile()
     {
-        return Yii::getAlias(Yii::$app->mailer->fileTransportPath) . '/testing_message.eml';
+        return Bee::getAlias(Bee::$app->mailer->fileTransportPath) . '/testing_message.eml';
     }
 
 }

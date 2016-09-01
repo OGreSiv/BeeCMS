@@ -1,8 +1,7 @@
 <?php
 
-namespace app\components\test\controllers\admin;
+namespace components\test\controllers\admin;
 
-use Yii;
 use yii\web\Controller;
 
 /**

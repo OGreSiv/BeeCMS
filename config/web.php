@@ -9,21 +9,24 @@ $configDB = array_merge(
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
+    'charset' => 'utf-8',
+//    'sourceLanguage' => 'en-EN', // основной язык системы
+//    'language' => 'ru-RU', // язык перевода
+    'timeZone' => 'Europe/Kiev',
     'bootstrap' => [
         'log',
-        'core'
     ],
     'vendorPath'     => dirname(__DIR__) . '/libs/vendor',
-    //'controllerNamespace' => 'app\components\default\controllers',
+    //'controllerNamespace' => 'components\default\controllers',
     'modules' => [
-        'core' => [
-            'class' => 'app\components\core\CoreModule',
+        'test' => [
+            'class' => 'components\test\Module',
         ],
         'main' => [
-            'class' => 'app\components\main\MainModule',
+            'class' => 'components\main\Module',
         ],
-        'test' => [
-            'class' => 'app\components\test\TestModule',
+        'template' => [
+            'class' => 'components\template\Module',
         ],
     ],
     'components' => [
@@ -42,7 +45,6 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'blB4ogwV-AUSdFZP5zugQNliF8uR_hyV',
-
             'baseUrl' => '',
         ],
 
@@ -51,7 +53,31 @@ $config = [
         ],
 
         'view' => [
-            'class' => 'app\libs\bee\classes\View',
+            'class' => 'bee\view\View',
+            //'theme' => [
+            //    'pathMap' => [
+            //        '@app/views' => '@tmpl/base',
+            //        '@app/modules' => '@tmpl/base',
+            //        '@app/widgets' => '@tmpl/base',
+            //        '@app/components' => '@tmpl/base'
+            //    ],
+            //    'baseUrl' => '@tmpl',
+            //    'basePath' => '@tmpl',
+            //],
+        ],
+        'i18n' => [
+            'translations' => [
+                'libs/bee/*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'forceTranslation' => true,
+                    'basePath' => '@app/libs/bee/messages',
+                    'fileMap' => [
+                        'libs/bee/messages/bee' => 'bee.php',
+                        'libs/bee/messages/language' => 'language.php',
+                    ],
+                    'on missingTranslation' => ['bee\language\TranslationEventHandler', 'handleMissingTranslation'],
+                ],
+            ],
         ],
 
         'user' => [
@@ -84,13 +110,26 @@ $config = [
          * Собствнное приложение для вывода IP пользователя
          */
         'ReadHttpHeader' => [
-            'class' => 'app\libs\bee\components\ReadHttpHeader\ReadHttpHeaderComponent'
+            'class' => 'bee\components\ReadHttpHeader\ReadHttpHeaderComponent'
         ],
+        'XmlParser' => [
+            'class' => 'bee\components\XmlParser\XmlParserComponent'
+        ],
+    ],
+    'aliases' => [
+        '@components' => dirname(__DIR__) . '/components',
+        '@bee' => dirname(__DIR__) . '/libs/bee',
+        '@tmpl' => dirname(__DIR__) . '/templates',
+        '@assets' => dirname(__DIR__) . '/assets',
     ],
     'params' => $params,
 ];
 
 if (YII_ENV_DEV) {
+    // force copy assets for every refresh of the page
+    $config['components']['assetManager']['forceCopy'] = true;
+    $config['components']['assetManager']['appendTimestamp'] = true;
+
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components\test\controllers\dev;
+namespace components\test\controllers\dev;
 
 use yii\web\Controller;
 

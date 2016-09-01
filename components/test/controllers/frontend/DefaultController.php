@@ -1,8 +1,8 @@
 <?php
 
-namespace app\components\test\controllers\frontend;
+namespace components\test\controllers\frontend;
 
-use Yii;
+use Bee;
 use yii\web\Controller;
 
 /**
@@ -25,17 +25,17 @@ class DefaultController extends Controller
         /*
          * Указать соверщенно другой путь к основному файлу рендера
         */
-        $this->module->setLayoutPath(Yii::getAlias(__DIR__. '/../../views/layouts/'));
+        $this->module->setLayoutPath(Bee::getAlias(__DIR__. '/../../views/layouts/'));
 
         /*
          * Сменить путь к вьюхе модуля
          */
-        $this->setViewPath(Yii::getAlias(__DIR__. '/../../views/dev/default/'));
+        $this->setViewPath(Bee::getAlias(__DIR__. '/../../views/dev/default/'));
 
         /*
          * Взять параметры модуля
          */
-        $module = \Yii::$app->getModule('template');
+        $module = \Bee::$app->getModule('template');
         echo '<pre>';
         print_r($module->params);
         echo '</pre>';

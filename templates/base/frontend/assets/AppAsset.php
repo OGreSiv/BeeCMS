@@ -1,5 +1,5 @@
 <?php
-namespace app\templates\base\frontend\assets;
+namespace tmpl\base\frontend\assets;
 
 use yii\web\AssetBundle;
 
@@ -9,14 +9,14 @@ use yii\web\AssetBundle;
  * @author    BeeCMS team <s.seroed@gmail.com>
  * @link      http://bee-cms.net
  * @copyright 2015 INTFOM
- * @package   app\templates\base\frontend\assets
+ * @package   tmpl\base\frontend\assets
  * @since     0.1
  */
 class AppAsset extends AssetBundle
 {
-    public $sourcePath = '@app/templates/base/frontend';
-    //public $basePath = '@app/templates/base/frontend';
-    //public $baseUrl = '@app/templates/base/frontend';
+    public $sourcePath = '@tmpl/base/frontend/assets';
+    //public $basePath = '@tmpl/base/frontend';
+    //public $baseUrl = '@tmpl/base/frontend';
     public $css = [
         'css/styles.css',
         '/css/tmpl-base-frontend.php' // php css with require config file for templates
@@ -24,7 +24,6 @@ class AppAsset extends AssetBundle
     public $js = [];
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
     ];
     //public $publishOptions = [
     //    'only' => [

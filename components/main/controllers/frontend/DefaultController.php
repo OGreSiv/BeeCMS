@@ -1,8 +1,9 @@
 <?php
 
-namespace app\components\main\controllers\frontend;
+namespace components\main\controllers\frontend;
 
-use Yii;
+use Bee;
+use components\main\Module;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -49,17 +50,18 @@ class DefaultController extends Controller
 
  public function actionIndex()
  {
+     echo Module::t('template', 'OLOLO');
   return $this->render('index');
  }
 
  public function actionLogin()
  {
-  if (!Yii::$app->user->isGuest) {
+  if (!Bee::$app->user->isGuest) {
    return $this->goHome();
   }
 
   $model = new LoginForm();
-  if ($model->load(Yii::$app->request->post()) && $model->login()) {
+  if ($model->load(Bee::$app->request->post()) && $model->login()) {
    return $this->goBack();
   }
   return $this->render('login', [
@@ -69,7 +71,7 @@ class DefaultController extends Controller
 
  public function actionLogout()
  {
-  Yii::$app->user->logout();
+     Bee::$app->user->logout();
 
   return $this->goHome();
  }
@@ -77,8 +79,8 @@ class DefaultController extends Controller
  public function actionContact()
  {
   $model = new ContactForm();
-  if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-   Yii::$app->session->setFlash('contactFormSubmitted');
+  if ($model->load(Bee::$app->request->post()) && $model->contact(Bee::$app->params['adminEmail'])) {
+      Bee::$app->session->setFlash('contactFormSubmitted');
 
    return $this->refresh();
   }

@@ -8,9 +8,9 @@ use yii\widgets\Breadcrumbs;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Bee::$app->language ?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>"/>
+    <meta charset="<?= Bee::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
@@ -32,7 +32,7 @@ use yii\widgets\Breadcrumbs;
     <footer class="footer">
         <div class="container">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><?= Bee::powered() ?></p>
         </div>
     </footer>
 

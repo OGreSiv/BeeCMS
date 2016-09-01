@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use Yii;
+use Bee;
 use yii\base\Model;
 
 /**
@@ -37,7 +37,7 @@ class ContactForm extends Model
     public function contact($email)
     {
         if ($this->validate()) {
-            Yii::$app->mailer->compose()
+            Bee::$app->mailer->compose()
                 ->setTo($email)
                 ->setFrom([$this->email => $this->name])
                 ->setSubject($this->subject)
