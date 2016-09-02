@@ -89,7 +89,7 @@ class BeeApplication extends Application
 
     /**
      * Function getLanguageKey
-     * Get the current language code
+     * Get the current user language code
      * @return string "ru" or "en"...
      */
     public function getLanguageKey() {

@@ -73,6 +73,7 @@ $config = [
                     'basePath' => '@app/libs/bee/messages',
                     'fileMap' => [
                         'libs/bee/messages/bee' => 'bee.php',
+                        'libs/bee/messages/menu' => 'menu.php',
                         'libs/bee/messages/language' => 'language.php',
                     ],
                     'on missingTranslation' => ['bee\language\TranslationEventHandler', 'handleMissingTranslation'],

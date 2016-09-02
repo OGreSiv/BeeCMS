@@ -4,6 +4,7 @@ namespace components\template\controllers\dev;
 
 use Bee;
 use yii\web\Controller;
+use bee\menu\models\Menu;
 
 /**
  * Default controller for the `test` module
@@ -24,9 +25,13 @@ class DefaultController extends Controller
 //        echo Bee::t('bee', 'bee', 'Hello, {username}!', [
 //            'username' => $username,
 //        ]);
+        $f = new Menu();
+        echo '<pre>';
+        print_r($f->find()->asArray()->all());
+        echo '</pre>';
 
 //        echo '<pre>';
-//        print_r(Bee::$app->i18n->translations);
+//        print_r(Bee::$aliases);
 //        echo '</pre>';
 //        exit();
 

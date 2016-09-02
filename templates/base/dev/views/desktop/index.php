@@ -62,7 +62,7 @@ $bundle = StylesAsset::register($this);
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index">
                 <?= Html::img($bundle->baseUrl . '/images/logo-icon.png', ['class' => ''])?>
                 <span><?= Html::img($bundle->baseUrl . '/images/logo-title.png', ['class' => ''])?></span>
             </a>
